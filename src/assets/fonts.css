@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'RobotoRegular';
+  src: local('Roboto Regular'), local('Roboto-Regular'),
+    url('../../public/Roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoMedium';
+  src: local('Roboto Medium'), local('Roboto-Medium'),
+    url('../../public/Roboto/Roboto-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoBold';
+  src: local('Roboto Bold'), local('Roboto-Bold'),
+    url('../../public/Roboto/Roboto-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoBlack';
+  src: local('Roboto Black'), local('Roboto-Black'),
+    url('../../public/Roboto/Roboto-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PoppinsRegular';
+  src: local('Poppins'), local('Poppins-Regular'),
+    url('../../public/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
