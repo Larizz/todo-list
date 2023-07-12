@@ -13,11 +13,13 @@ import App from './App.vue'
 import router from './router'
 import { Quasar } from 'quasar'
 
-const app = createApp(App).use(createPinia()).use(Quasar)
+const pinia = createPinia()
+const app = createApp(App)
 
 // O create Pinia não deve ser apenas chamado, mas sim executado, pois ele é uma função
 
-app.use(createPinia())
-app.use(router)
+app.use(Quasar, { plugins: {} })
 
+app.use(router)
+app.use(pinia)
 app.mount('#app')

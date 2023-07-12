@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { AuthGoogleProvider } from './contexts/authGoogle'
+import { AuthGoogleProvider } from './store/authGoogle'
 
 const authStore = AuthGoogleProvider()
 

@@ -38,7 +38,7 @@
                       <div
                         class="bg-brand-main rounded-full sm:w-7 sm:h-7 w-5 h-5 flex justify-center"
                       >
-                        <img src="../assets/bell.svg" alt="" class="sm:w-5 w-4 sm:h-5" />
+                        <img src="../assets/bell.svg" alt="" class="sm:w-6 w-4 sm:h-6" />
                       </div>
                       <h5 class="text-slate-600 font-light sm:text-lg text-sm">Notification</h5>
                     </div>
@@ -79,7 +79,7 @@
               placeat iste asperiores soluta eaque veritatis.
             </p>
             <button
-              @click="handleGoogleSignIn()"
+              @click="signInGoogle()"
               class="text-white w-full flex justify-center items-center border-2 border-brand-main gap-2 sm:mt-10 mt-8 p-2 hover:bg-slate-950"
             >
               <img src="../assets/google.svg" alt="" class="w-6" /> Login with Google
@@ -101,20 +101,23 @@
           <div class="border-b border-slate-300 mt-2" />
           <p class="flex items-center text-lg gap-2 mt-5">
             <img src="../assets/github.svg" alt="" />
-            <a href="https://github.com/Larizz" class="hover:text-brand-main"> Larizz</a>
+            <a href="https://github.com/Larizz" class="hover:text-brand-main" target="_blank">
+              Larizz</a
+            >
           </p>
           <p class="flex items-center text-lg gap-2 mt-2">
             <img src="../assets/linkedin.svg" alt="" />
             <a
               href="https://www.linkedin.com/in/larissa-lima-53a976206/"
               class="hover:text-brand-main"
+              target="_blank"
             >
               Larissa Lima</a
             >
           </p>
           <p class="flex items-center text-lg gap-2 mt-2">
             <img src="../assets/insta.svg" alt="" />
-            <a href="" class="hover:text-brand-main"> lari.alvesl </a>
+            <a href="" class="hover:text-brand-main"> lari.alvesl</a>
           </p>
         </div>
       </div>
@@ -126,32 +129,43 @@
 </template>
 
 <script setup lang="ts">
-import { auth } from '@/services/firebase'
-import { app } from '@/services/firebase'
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
-import firebase from 'firebase/compat/app'
+import { computed, defineComponent, onMounted } from 'vue'
+import { AuthGoogleProvider } from '@/store/authGoogle'
 
-const provider = new GoogleAuthProvider()
-const auth = getAuth(app)
+const { user, signInGoogle, signOut, loadStorageData } = AuthGoogleProvider()
 
-// // esse app são as credenciais disponibilizadas pelo firebase que estão na pasta services
+onMounted(() => {
+  loadStorageData()
+})
 
-function handleGoogleSignIn() {
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result)
-      const token = credential ? credential.accessToken : null
+// import { GoogleAuthProvider, getAuth } from 'firebase/auth'
+// import { AuthGoogleProvider } from '@/store/widget'
+// import { signInWithPopup } from 'firebase/auth'
 
-      const user = result.user
-      console.log(result)
-    })
-    .catch((error) => {
-      const errorCode = error.code
-      const errorMessage = error.message
-      const email = error.customData.email
-      const credential = GoogleAuthProvider.credentialFromError(error)
-    })
-}
+// const provider = new GoogleAuthProvider()
+
+// const store = AuthGoogleProvider()
+
+// const auth = getAuth()
+
+// // // esse app são as credenciais disponibilizadas pelo firebase que estão na pasta services
+
+// function handleGoogleSignIn() {
+//   signInWithPopup(auth, provider)
+//     .then((result) => {
+//       const credential = GoogleAuthProvider.credentialFromResult(result)
+//       const token = credential ? credential.accessToken : null
+
+//       const user = result.user
+//       console.log(result)
+//     })
+//     .catch((error) => {
+//       const errorCode = error.code
+//       const errorMessage = error.message
+//       const email = error.customData.email
+//       const credential = GoogleAuthProvider.credentialFromError(error)
+//     })
+// }
 
 // interface firebaseUser {
 //   email: any
