@@ -1,84 +1,100 @@
 <template>
-  <div class="bg-white h-screen m-10 rounded-xl">
-    <q-layout view="hHh lpR fFf" container style="height: 100%" class="shadow-2 rounded-borders">
-      <q-drawer
-        v-model="drawer"
-        show-if-above
-        :mini="!drawer || miniState"
-        @click.capture="drawerClick"
-        :width="200"
-        :breakpoint="500"
-        bordered
-        :class="$q.dark.isActive ? 'bg-grey-9' : 'bg-grey-3'"
-      >
-        <q-scroll-area class="fit">
-          <q-list padding>
-            <q-item clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon name="inbox"></q-icon>
-              </q-item-section>
-
-              <q-item-section> Inbox </q-item-section>
-            </q-item>
-
-            <q-item active clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon name="star"></q-icon>
-              </q-item-section>
-
-              <q-item-section> Star </q-item-section>
-            </q-item>
-
-            <q-item clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon name="send"></q-icon>
-              </q-item-section>
-
-              <q-item-section> Send </q-item-section>
-            </q-item>
-
-            <q-item clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon name="drafts"></q-icon>
-              </q-item-section>
-
-              <q-item-section> Drafts </q-item-section>
-            </q-item>
-          </q-list>
-        </q-scroll-area>
-
-        <!--
-          in this case, we use a button (can be anything)
-          so that user can switch back
-          to mini-mode
-        -->
-        <div class="q-mini-drawer-hide absolute" style="top: 15px; right: -17px">
-          <q-btn
-            dense
-            round
-            unelevated
-            color="accent"
-            icon="chevron_left"
-            @click="miniState = true"
-          ></q-btn>
-        </div>
-      </q-drawer>
-
-      <q-page-container>
-        <router-view />
-      </q-page-container>
-    </q-layout>
+  <div class="flex flex-1 flex-col m-8 mb-10">
+    <div class="q-pa-md">
+      <div class="q-gutter-md">
+        <q-carousel
+          v-model="slide"
+          transition-prev="scale"
+          transition-next="scale"
+          swipeable
+          animated
+          control-color="black"
+          navigation
+          arrows
+          height="500px"
+          class="bg-white text-black shadow-1 rounded-borders"
+        >
+          <q-carousel-slide name="style" class="column no-wrap flex-center">
+            <div class="q-mt-md text-center flex">
+              <list-card
+                v-for="(item, index) in titleListTasks1"
+                :key="index"
+                :title="item.title"
+              ></list-card>
+            </div>
+          </q-carousel-slide>
+          <q-carousel-slide name="tv" class="column no-wrap flex-center">
+            <div class="q-mt-md text-center flex">
+              <list-card
+                v-for="(item, index) in titleListTask2"
+                :key="index"
+                :title="item.title"
+              ></list-card>
+            </div>
+          </q-carousel-slide>
+          <q-carousel-slide name="layers" class="column no-wrap flex-center">
+            <div class="q-mt-md text-center">
+              <list-card
+                v-for="(item, index) in titleListTask3"
+                :key="index"
+                :title="item.title"
+              ></list-card>
+            </div>
+          </q-carousel-slide>
+        </q-carousel>
+      </div>
+    </div>
+  </div>
+  <div>
+    <!-- <div class="grid grid-cols-4 mt-6">
+      <list-card
+        v-for="(item, index) in titleListTasks"
+        :key="index"
+        :title="item.title"
+      ></list-card>
+    </div> -->
   </div>
 </template>
 
 <script setup lang="ts">
+import listCard from '../layout/components/listCard.vue'
 import { ref } from 'vue'
-const miniState = ref(false)
-const drawer = ref(false)
 
-const drawerClick = () => {
-  if (miniState.value) {
-    miniState.value = false
+const slide = ref('style')
+
+const titleListTasks1 = [
+  {
+    title: 'Sunday'
+  },
+  {
+    title: 'Monday'
+  },
+  {
+    title: 'Tuesday'
   }
-}
+]
+
+const titleListTask2 = [
+  {
+    title: 'Wednesday'
+  },
+  {
+    title: 'Thursday'
+  },
+  {
+    title: 'Friday'
+  }
+]
+
+const titleListTask3 = [
+  {
+    title: 'Saturday'
+  }
+]
 </script>
+
+<style scoped>
+.menu-sidebar {
+  border-right: none;
+}
+</style>

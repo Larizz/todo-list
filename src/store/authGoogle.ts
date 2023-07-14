@@ -29,18 +29,23 @@ export const AuthGoogleProvider = defineStore('AuthGoogleProvider', () => {
       const loggedInUser = result.user
 
       Cookies.set('token', token, {
-        expires: 7
+        expires: 2
       })
       //o primeiro parâmetro passado é o nome do cookie e o segundo é o valor do cookie, expires é o tempo de expiração do token
 
+      user.value = loggedInUser
+
       if (Cookies.get('token') && token) {
-        router.push({ path: '/home' })
+        router.push({ path: '/base' })
       } else {
         console.log('erro aff')
       }
       // verifica se o cookie com o nome token existe e se o valor não é indefinido
 
-      console.log(credential?.accessToken)
+      console.log(result)
+      console.log(loggedInUser.displayName)
+      console.log(result.user.photoURL)
+      console.log(user)
     } catch (error) {
       const errorCode = (error as any).code
       const errorMessage = (error as any).message

@@ -40,7 +40,7 @@
                       >
                         <img src="../assets/bell.svg" alt="" class="sm:w-6 w-4 sm:h-6" />
                       </div>
-                      <h5 class="text-slate-600 font-light sm:text-lg text-sm">Notification</h5>
+                      <h5 class="text-slate-600 font-light sm:text-lg text-sm">Tasks</h5>
                     </div>
                     <div>
                       <img src="../assets/x.svg" alt="" class="w-5 hover:w-5" />
@@ -122,7 +122,7 @@
         </div>
       </div>
     </div>
-    <div class="mt-8 bg-black h-8 text-white flex flex-1 justify-center items-center">
+    <div class="flex justify-center">
       <footer>&copy; 2023 todolist</footer>
     </div>
   </div>
@@ -137,54 +137,6 @@ const { user, signInGoogle, signOut, loadStorageData } = AuthGoogleProvider()
 onMounted(() => {
   loadStorageData()
 })
-
-// import { GoogleAuthProvider, getAuth } from 'firebase/auth'
-// import { AuthGoogleProvider } from '@/store/widget'
-// import { signInWithPopup } from 'firebase/auth'
-
-// const provider = new GoogleAuthProvider()
-
-// const store = AuthGoogleProvider()
-
-// const auth = getAuth()
-
-// // // esse app são as credenciais disponibilizadas pelo firebase que estão na pasta services
-
-// function handleGoogleSignIn() {
-//   signInWithPopup(auth, provider)
-//     .then((result) => {
-//       const credential = GoogleAuthProvider.credentialFromResult(result)
-//       const token = credential ? credential.accessToken : null
-
-//       const user = result.user
-//       console.log(result)
-//     })
-//     .catch((error) => {
-//       const errorCode = error.code
-//       const errorMessage = error.message
-//       const email = error.customData.email
-//       const credential = GoogleAuthProvider.credentialFromError(error)
-//     })
-// }
-
-// interface firebaseUser {
-//   email: any
-// }
-
-// function handleGoogleSignIn() {
-//   const provider = new GoogleAuthProvider()
-
-//   signInWithPopup(auth, provider)
-//     .then((result) => {
-//       const user: firebaseUser = {
-//         email: result.user.email
-//       }
-//       console.log(result)
-//     })
-//     .catch((error) => {
-//       console.log(error)
-//     })
-// }
 </script>
 
 <style scoped>

@@ -10,20 +10,34 @@ const router = createRouter({
       component: () => import('../views/LoginPage.vue')
     },
     {
-      path: '/home',
-      name: 'home',
+      path: '/base',
+      name: 'base',
+      redirect: { path: '/home' },
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/HomeView.vue')
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue')
+      component: () => import('../layout/baseLayout.vue'),
+      meta: {
+        requiresAuth: true
+      },
+
+      children: [
+        {
+          path: '/home',
+          name: 'home',
+          component: () => import('../views/HomeView.vue')
+        },
+        {
+          path: '/about',
+          name: 'about',
+          component: () => import('../views/AboutView.vue')
+        }
+      ]
     }
   ]
 })
+
+// beforeEach é uma função/hook que será executado antes de cada rota iniciar. O primeiro argumento é a rota de destino e o segundo a rota de origem.
 
 // router.beforeEach((to, from, next) => {
 //   const currentUser = firebase.auth().currentUser
