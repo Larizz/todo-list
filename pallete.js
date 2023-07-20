@@ -1,12 +1,12 @@
 module.exports = {
   brand: {
-    main: '#A61F69',
+    main: '#430de3',
     gray: '#F9F9F9',
     info: '#8296FB',
     graydark: '#C0BCB0',
     warning: '#d5ff40',
     danger: '#F2921D',
-    purple: '#400E32'
+    purple: '#ec5eff'
   },
   mediumslateblue: {
     50: '#f6f9fd',

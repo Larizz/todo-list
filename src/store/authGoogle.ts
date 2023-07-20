@@ -1,5 +1,11 @@
 import { defineStore } from 'pinia'
-import { getAuth, GoogleAuthProvider, signInWithPopup, type User } from 'firebase/auth'
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  type User
+} from 'firebase/auth'
 import { app } from '../services/firebase'
 import Cookies from 'js-cookie'
 import { ref, computed } from 'vue'

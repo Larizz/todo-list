@@ -1,50 +1,16 @@
 <template>
   <div class="flex flex-1 flex-col m-8 mb-10">
-    <div class="q-pa-md">
-      <div class="q-gutter-md">
-        <q-carousel
-          v-model="slide"
-          transition-prev="scale"
-          transition-next="scale"
-          swipeable
-          animated
-          control-color="black"
-          navigation
-          arrows
-          height="500px"
-          class="bg-white text-black shadow-1 rounded-borders"
-        >
-          <q-carousel-slide name="style" class="column no-wrap flex-center">
-            <div class="q-mt-md text-center flex">
-              <list-card
-                v-for="(item, index) in titleListTasks1"
-                :key="index"
-                :title="item.title"
-              ></list-card>
-            </div>
-          </q-carousel-slide>
-          <q-carousel-slide name="tv" class="column no-wrap flex-center">
-            <div class="q-mt-md text-center flex">
-              <list-card
-                v-for="(item, index) in titleListTask2"
-                :key="index"
-                :title="item.title"
-              ></list-card>
-            </div>
-          </q-carousel-slide>
-          <q-carousel-slide name="layers" class="column no-wrap flex-center">
-            <div class="q-mt-md text-center">
-              <list-card
-                v-for="(item, index) in titleListTask3"
-                :key="index"
-                :title="item.title"
-              ></list-card>
-            </div>
-          </q-carousel-slide>
-        </q-carousel>
-      </div>
-    </div>
+    <!-- <div class="q-pa-md">
+      <div class="q-gutter-md "> -->
+    <!-- <ul>
+          <li v-for="(item, index) in tasks" :key="index" class="text-slate-600 font-light">
+            {{ (item as TodoItem).todo }}
+          </li>
+        </ul> -->
   </div>
+  <!-- </div>
+  </div> -->
+
   <div>
     <!-- <div class="grid grid-cols-4 mt-6">
       <list-card
@@ -58,9 +24,31 @@
 
 <script setup lang="ts">
 import listCard from '../layout/components/listCard.vue'
-import { ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
+import services from '../services'
 
-const slide = ref('style')
+const tasks = ref<unknown>([])
+const current = ref({
+  page: 1,
+  rowPerPage: 5
+})
+
+onMounted(() => {
+  getAllTasks()
+})
+
+interface TodoItem {
+  id: number
+  todo: string
+  completed: boolean
+  userId: number
+}
+
+const getAllTasks = async () => {
+  const { data } = await services.tasks.getAllTasks({ limit: 10, skip: 10 })
+  const task = (tasks.value = data.todos)
+  console.log(tasks.value)
+}
 
 const titleListTasks1 = [
   {
@@ -68,16 +56,19 @@ const titleListTasks1 = [
   },
   {
     title: 'Monday'
-  },
-  {
-    title: 'Tuesday'
   }
 ]
 
 const titleListTask2 = [
   {
-    title: 'Wednesday'
+    title: 'Tuesday'
   },
+  {
+    title: 'Wednesday'
+  }
+]
+
+const titleListTask3 = [
   {
     title: 'Thursday'
   },
@@ -86,7 +77,7 @@ const titleListTask2 = [
   }
 ]
 
-const titleListTask3 = [
+const titleListTask4 = [
   {
     title: 'Saturday'
   }

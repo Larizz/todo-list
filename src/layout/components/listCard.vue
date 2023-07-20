@@ -6,12 +6,9 @@
           {{ props.title }}
         </p>
         <ul class="">
-          <li class="mb-6"><q-input v-model="newTask" :dense="true" color="black"></q-input></li>
+          <li class="mb-6 bg-black"></li>
           <li>
-            <button
-              class="rounded-sm text-white h-7 w-14 bg-brand-main hover:h-8 hover:w-16"
-              @click="AddingNewTask()"
-            >
+            <button class="rounded-sm text-white h-7 w-14 bg-brand-main hover:h-8 hover:w-16">
               Add
             </button>
           </li>
@@ -22,25 +19,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import Services from '../../services'
-
-const newTask = ref('')
-const dense = ref(false)
-
 const props = withDefaults(
   defineProps<{
     title: string
+    list: string
   }>(),
   {
     title: '---'
   }
 )
-
-const AddingNewTask = async () => {
-  const data = await Services.tasks.addTask(newTask.value)
-  console.log(data)
-}
 </script>
 
 <style scoped>

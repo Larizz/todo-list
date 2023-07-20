@@ -1,6 +1,6 @@
 <template>
   <div class="w-[4rem] h-screen border border-slate-200 flex flex-col justify-between">
-    <div>
+    <!-- <div>
       <ul class="m-4">
         <li class="mb-8">
           <img src="../../assets/calendar-schedule-svgrepo-com.svg" alt="" />
@@ -37,7 +37,7 @@
           <strong>Logout</strong>
         </q-tooltip>
       </button>
-    </div>
+    </div> -->
   </div>
 </template>
 

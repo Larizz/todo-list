@@ -8,7 +8,20 @@
       body {
         margin: 0;
         padding: 0;
-        @apply bg-brand-warning;
+        background: linear-gradient(90deg, #06c8f9, #430de3, #00ffff);
+        background-size: 600% 600%;
+        animation: color 12s ease-in-out infinite;
+      }
+      @keyframes color {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
       }
     </style>
   </head>

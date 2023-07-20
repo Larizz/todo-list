@@ -4,7 +4,7 @@ import Tasks from './Tasks'
 
 //criando uma instância do Axios usando o método create, que recebe um objeto de configuração que define a URL base
 const httpClient = axios.create({
-  baseURL: ''
+  baseURL: 'https://dummyjson.com'
 })
 
 export default {
