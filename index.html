@@ -6,12 +6,20 @@
     <title>Todo List</title>
     <style>
       body {
+        overflow-y: scroll;
+        overflow-x: hidden;
         margin: 0;
         padding: 0;
         background: linear-gradient(90deg, #06c8f9, #430de3, #00ffff);
         background-size: 600% 600%;
         animation: color 12s ease-in-out infinite;
+        position: relative;
       }
+
+      html {
+        overflow: auto;
+      }
+
       @keyframes color {
         0% {
           background-position: 0% 50%;
@@ -22,6 +30,20 @@
         100% {
           background-position: 0% 50%;
         }
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+        z-index: 1 !important;
+      }
+
+      ::-webkit-scrollbar-track {
+        border-radius: 100px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 100px;
       }
     </style>
   </head>

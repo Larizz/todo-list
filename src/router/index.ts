@@ -28,8 +28,7 @@ const router = createRouter({
         {
           path: '/home',
           name: 'home',
-          component: () => import('../views/HomeView.vue'),
-          beforeEnter: Guard.auth
+          component: () => import('../views/HomeView.vue')
         },
         {
           path: '/about',

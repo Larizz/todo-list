@@ -1,5 +1,12 @@
 <template>
   <div class="flex flex-1 flex-col m-8 mb-10">
+    <div class="q-ma-md">
+      <q-scroll-area style="height: 490px; max-width: 100%">
+        <div class="grid grid-cols-4 mt-6">
+          <list-card title="Sunday"></list-card>
+        </div>
+      </q-scroll-area>
+    </div>
     <!-- <div class="q-pa-md">
       <div class="q-gutter-md "> -->
     <!-- <ul>
@@ -10,16 +17,6 @@
   </div>
   <!-- </div>
   </div> -->
-
-  <div>
-    <!-- <div class="grid grid-cols-4 mt-6">
-      <list-card
-        v-for="(item, index) in titleListTasks"
-        :key="index"
-        :title="item.title"
-      ></list-card>
-    </div> -->
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -28,10 +25,6 @@ import { computed, onMounted, ref } from 'vue'
 import services from '../services'
 
 const tasks = ref<unknown>([])
-const current = ref({
-  page: 1,
-  rowPerPage: 5
-})
 
 onMounted(() => {
   getAllTasks()
@@ -50,42 +43,29 @@ const getAllTasks = async () => {
   console.log(tasks.value)
 }
 
-const titleListTasks1 = [
+const titleListTasks = [
   {
     title: 'Sunday'
   },
   {
     title: 'Monday'
-  }
-]
-
-const titleListTask2 = [
+  },
   {
     title: 'Tuesday'
   },
   {
     title: 'Wednesday'
-  }
-]
-
-const titleListTask3 = [
+  },
   {
     title: 'Thursday'
   },
   {
     title: 'Friday'
-  }
-]
-
-const titleListTask4 = [
+  },
   {
     title: 'Saturday'
   }
 ]
 </script>
 
-<style scoped>
-.menu-sidebar {
-  border-right: none;
-}
-</style>
+<style scoped></style>

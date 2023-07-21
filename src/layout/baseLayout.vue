@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white h-screen m-6 rounded-2xl flex">
+  <div class="bg-white h-[40rem] m-6 rounded-2xl flex">
     <div class="flex flex-1 flex-col">
       <div>
         <Header />

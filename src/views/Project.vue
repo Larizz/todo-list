@@ -1,47 +1,69 @@
 <template>
   <div class="h-screen w-full">
-    <div class="w-full h-6 sm:px-20 px-8 py-3 flex justify-between items-center text-white">
-      <div>
-        <p class="font-light sm:text-[1.625rem] text-[1.4rem]">Todo List</p>
-      </div>
-      <div>
-        <ul class="flex sm:gap-12 gap-7 sm:text-[1.375rem] text-[0.9rem] font-extralight">
-          <li class="hover:font-light"><RouterLink to="/login">Home</RouterLink></li>
-          <li class="hover:font-light"><RouterLink to="/about">About Us</RouterLink></li>
-          <li class="hover:font-light"><RouterLink to="/login">Login</RouterLink></li>
-        </ul>
-      </div>
-    </div>
-    <div class="grid grid-cols-2 sm:flex-row justify-between sm:m-20 m-10 my-28 sm:gap-30">
-      <div class="flex flex-col flex-1">
+    <!-- inicial page -->
+    <section v-motion-fade :delay="1200">
+      <div class="w-full h-6 sm:px-28 px-8 py-3 flex justify-between items-center text-white">
         <div>
-          <h1 class="font-black leading-[0.9] sm:text-[11.25rem] text-[6rem] text-white">
-            TODO <br />
-            LIST
-          </h1>
+          <p class="font-light sm:text-[1.625rem] text-[1.4rem]">Todo List</p>
         </div>
-        <div class="mt-16">
-          <button
-            class="h-12 w-[12rem] rounded-3xl bg-slate-50 hover:bg-slate-200 text-gray-800 hover:text-gray-950"
-          >
-            <span class="font-light"><RouterLink to="/login"> Take a Test</RouterLink></span>
-          </button>
+        <div>
+          <ul class="flex sm:gap-12 gap-7 sm:text-[1.375rem] text-[0.9rem] font-extralight">
+            <li class="hover:font-light"><RouterLink to="/login">Home</RouterLink></li>
+            <li class="hover:font-light"><RouterLink to="/about">About Us</RouterLink></li>
+            <li class="hover:font-light"><RouterLink to="/login">Login</RouterLink></li>
+          </ul>
         </div>
       </div>
-      <div class="w-[35rem] h-[30rem] rounded-3xl">
-        <img
-          src="../assets/ImageTodo5-removebg.png"
-          alt=""
-          class="rounded-2xl w-full h-[35rem] object-cover"
-        />
+      <div
+        class="grid sm:grid-cols-2 grid-cols-1 sm:flex-row justify-between sm:mt-20 sm:mx-28 mx-10 mt-24 sm:my-28 sm:gap-30"
+      >
+        <div class="flex flex-col flex-1">
+          <div>
+            <h1 class="font-black leading-[0.9] sm:text-[13.25rem] text-[7rem] text-white">
+              TODO <br />
+              LIST
+            </h1>
+          </div>
+          <div class="mt-16">
+            <button
+              class="h-12 w-[12rem] rounded-3xl bg-slate-50 hover:bg-slate-200 text-gray-800 hover:text-gray-950"
+            >
+              <span class="font-light"><RouterLink to="/login"> Login</RouterLink></span>
+            </button>
+          </div>
+        </div>
+        <div
+          v-motion
+          :initial="{
+            y: 0,
+            opacity: 0
+          }"
+          :enter="{
+            y: 10,
+            opacity: 1,
+            transition: {
+              duration: 300,
+              type: 'keyframes',
+              ease: 'easeIn'
+            }
+          }"
+          class="md:w-[40rem] sm:w-[640px] w-[256px] sm:h-[30rem] h-[15rem]"
+        >
+          <img
+            src="../assets/mainPage.svg"
+            alt=""
+            class="rounded-2xl w-full md:h-[700px] sm:h-[640px] object-cover"
+          />
+        </div>
       </div>
-    </div>
-    <section>
-      <div class="w-full flex justify-center my-72">
-        <div class="w-[60rem] text-center">
-          <span class="text-[3.2rem] text-slate-50 font-bold">
-            A <strong class="text-[4rem] text-black">Todo List</strong> is a project that seeks to
-            help you organize your weekly goals to increase productivity
+    </section>
+
+    <section v-motion-slide-bottom :delay="3000">
+      <div class="w-full flex justify-center sm:my-96 my-52">
+        <div class="w-[60rem] text-center mx-10">
+          <span class="sm:text-[3.2rem] text-[1.7rem] text-slate-50 font-bold">
+            A <strong class="sm:text-[4rem] text-[2rem] text-black">Todo List</strong> is a project
+            that seeks to help you organize your weekly goals to increase productivity
           </span>
           <p class="mt-8 font-light text-white">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, omnis dolorum rerum
@@ -56,49 +78,53 @@
         </div>
       </div>
     </section>
-    <section>
+    <section v-motion-fade>
       <div class="flex justify-center mx-20">
-        <div class="grid grid-cols-2 gap-20">
+        <div class="grid sm:grid-cols-2 grid-cols-1 gap-20">
           <div class="text-white">
-            <span class="text-[4rem] font-bold leading-[1]">Log your tasks weekly</span>
-            <p class="mt-10 text-lg">
+            <span class="sm:text-[4rem] text-[2.2rem] font-bold leading-[1]"
+              >Log your tasks weekly</span
+            >
+            <p class="mt-10 sm:text-lg text-base">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero illum hic aliquid
               voluptatem exercitationem! Esse assumenda, asperiores ratione perferendis vel modi
               veniam necessitatibus sapiente, ea error deleniti omnis, obcaecati ipsum.
             </p>
-            <p class="mt-8 text-lg">
+            <p class="mt-8 sm:text-lg text-base">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nesciunt nostrum
               eum maiores laborum, ullam aut unde at nisi eligendi corrupti eius velit
               exercitationem accusamus fugiat officia qui cum deleniti.
             </p>
           </div>
-          <div class="w-full h-[30rem] rounded-2xl bg-white">
+          <div class="w-full sm:h-[30rem] h-[20rem] rounded-2xl bg-white">
             <img
               src="../assets/TodoNotes.jpg"
               alt=""
-              class="rounded-2xl w-full h-[30rem] object-cover"
+              class="rounded-2xl w-full sm:h-[500px] object-cover"
             />
           </div>
         </div>
       </div>
 
-      <div class="flex ustify-center mx-20 my-72">
-        <div class="grid grid-cols-2 gap-20">
-          <div class="w-full h-[30rem] rounded-2xl bg-white">
+      <div class="flex justify-center mx-20 sm:my-72 my-40">
+        <div class="grid sm:grid-cols-2 grid-cols-1 gap-20">
+          <div class="w-full sm:h-[30rem] h-[20rem] rounded-2xl bg-white">
             <img
               src="../assets/Organization.jpg"
               alt=""
-              class="rounded-2xl w-full h-[30rem] object-cover"
+              class="rounded-2xl w-full sm:h-[500px] object-cover"
             />
           </div>
           <div class="text-white">
-            <span class="text-[4rem] font-bold leading-[1]">Build an organized routine</span>
-            <p class="mt-10 text-lg">
+            <span class="sm:text-[4rem] text-[2.2rem] font-bold leading-[1]"
+              >Build an organized routine</span
+            >
+            <p class="mt-10 sm:text-lg text-base">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero illum hic aliquid
               voluptatem exercitationem! Esse assumenda, asperiores ratione perferendis vel modi
               veniam necessitatibus sapiente, ea error deleniti omnis, obcaecati ipsum.
             </p>
-            <p class="mt-8 text-lg">
+            <p class="mt-8 sm:text-lg text-base">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nesciunt nostrum
               eum maiores laborum, ullam aut unde at nisi eligendi corrupti eius velit
               exercitationem accusamus fugiat officia qui cum deleniti.

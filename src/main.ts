@@ -1,6 +1,7 @@
 import './assets/main.css'
 import './assets/fonts.css'
 import '@quasar/extras'
+import { MotionPlugin } from '@vueuse/motion'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -22,4 +23,5 @@ app.use(Quasar, { plugins: {} })
 
 app.use(router)
 app.use(pinia)
+app.use(MotionPlugin)
 app.mount('#app')

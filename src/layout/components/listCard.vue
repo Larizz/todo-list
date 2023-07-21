@@ -22,7 +22,7 @@
 const props = withDefaults(
   defineProps<{
     title: string
-    list: string
+    todo: string
   }>(),
   {
     title: '---'
