@@ -1,32 +1,15 @@
 <template>
   <div>
-    <div class="w-72 sm-96 flex flex-col items-center">
-      <div>
-        <p class="text-xl text-brand-main font-light flex w-full justify-center">
-          {{ props.title }}
-        </p>
-        <ul class="">
-          <li class="mb-6 bg-black"></li>
-          <li>
-            <button class="rounded-sm text-white h-7 w-14 bg-brand-main hover:h-8 hover:w-16">
-              Add
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <div class="w-full h-20 bg-slate-200 rounded-2xl"></div>
   </div>
 </template>
 
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    title: string
-    todo: string
+    task: string
   }>(),
-  {
-    title: '---'
-  }
+  {}
 )
 </script>
 

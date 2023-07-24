@@ -1,63 +1,41 @@
 <template>
   <div class="header">
-    <div class="px-5 py-4 flex justify-between items-center">
+    <div class="flex justify-end items-center">
       <div class="flex gap-10 items-center">
         <div class="flex gap-2">
           <div class="w-5 h-5 rounded-full bg-brand-purple"></div>
           <div class="w-5 h-5 rounded-full bg-brand-danger"></div>
-          <div class="w-5 h-5 rounded-full bg-brand-main"></div>
-        </div>
-        <div class="flex gap-3">
-          <a href=""><img src="../../assets/aboutMe.svg" alt="" /></a>
-          <a href=""><img src="../../assets/botao-home.svg" alt="" /></a>
-        </div>
-      </div>
-      <div>
-        <q-input v-model="text">
-          <template v-slot:prepend>
-            <q-icon name="search"></q-icon>
-          </template>
-        </q-input>
-      </div>
-      <div class="flex items-center gap-3">
-        <p class="text-lg font-light flex mt-3">{{ user?.displayName }}</p>
-        <div
-          class="w-[2.8rem] h-[2.8rem] border-2 border-brand-main rounded-full flex justify-center items-center"
-        >
-          <img
-            :src="user && user.photoURL ? user.photoURL : undefined"
-            alt=""
-            class="w-[2.2rem] h-[2.2rem] rounded-full"
-          />
+          <div class="w-5 h-5 rounded-full bg-brand-warning"></div>
         </div>
       </div>
     </div>
-    <!-- <div>
-      <p class="text-2xl font-light mt-3">Week Todo List</p>
-    </div>
-    <div class="flex items-center gap-3">
-      <p class="text-lg font-light flex mt-3">Olá, {{ user?.displayName }}</p>
-      <div
-        class="w-[2.8rem] h-[2.8rem] border-2 border-brand-main rounded-full flex justify-center items-center"
-      >
-        <img
-          :src="user && user.photoURL ? user.photoURL : undefined"
-          alt=""
-          class="w-[2.2rem] h-[2.2rem] rounded-full"
-        />
+    <div class="flex flex-col justify-end mx-4">
+      <p class="font-normal text-white mb-1 text-xs">Tasks / <strong>My Tasks</strong></p>
+      <div class="flex items-center gap-2">
+        <p class="font-light text-white text-3xl">My Tasks</p>
+        <div class="mt-[-10px]">
+          <q-icon name="keyboard_arrow_down" class="text-white" size="2em"></q-icon>
+        </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, defineComponent, onMounted } from 'vue'
+import { ref, onMounted, createApp } from 'vue'
 import { AuthGoogleProvider } from '../../store/authGoogle'
 
-const { user, signInGoogle, signOut, loadStorageData } = AuthGoogleProvider()
+const { user, loadStorageData } = AuthGoogleProvider()
+const savedUser = ref(null)
 
 onMounted(() => {
+  const savedUser = sessionStorage.getItem('user')
   loadStorageData()
+
+  if (savedUser) {
+    console.log('user do local storage')
+    console.log(JSON.parse(savedUser))
+  }
 })
 
 console.log(user?.displayName)
@@ -66,9 +44,9 @@ console.log(user?.displayName)
 <style scoped>
 .header {
   width: 100%;
-  height: 5.5rem;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  @apply bg-brand-warning;
+  background: linear-gradient(90deg, #06c8f9, #430de3, #00ffff);
+  background-size: 600% 600%;
+  animation: color 12s ease-in-out infinite;
+  @apply h-44 p-3 flex flex-col gap-20;
 }
 </style>

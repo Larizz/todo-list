@@ -1,12 +1,17 @@
 <template>
-  <div class="bg-white h-[40rem] m-6 rounded-2xl flex">
-    <div class="flex flex-1 flex-col">
-      <div>
-        <Header />
+  <div class="h-[100vh]">
+    <div class="flex bg-white">
+      <div class="fixed">
+        <Menu />
       </div>
+      <div class="flex flex-1 flex-col">
+        <div class="ml-72">
+          <Header />
+        </div>
 
-      <div class="flex flex-1 mt-1 h-screen">
-        <RouterView />
+        <div class="flex flex-1 mt-1 h-screen ml-72">
+          <RouterView />
+        </div>
       </div>
     </div>
   </div>
