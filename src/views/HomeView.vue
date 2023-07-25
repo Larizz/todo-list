@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-1 flex-col m-7 mb-10 h-screen">
+  <div class="flex flex-1 flex-col m-7 mb-10 h-full">
     <div>
       <div class="flex gap-16">
         <p class="font-light">Priority</p>
@@ -19,14 +19,16 @@
         New Task
         <q-icon name="keyboard_arrow_down" size="2em" class="text-white rounded-full ml-1"></q-icon>
       </button>
-      <div class="mt-8 grid grid-cols-3 border-none gap-5">
-        <fieldTasks
-          v-for="(item, index) in titleCards"
+
+      <div class="">
+        <div class="mt-8 border-none gap-5">
+          <fieldTasks />
+        </div>
+      </div>
+      <!-- v-for="(item, index) in titleCards"
           :key="index"
           :title-card="item.title"
-          :color-tag="item.colorTag"
-        />
-      </div>
+          :color-tag="item.colorTag" -->
     </div>
     <!-- <div class="q-pa-md">
       <div class="q-gutter-md "> -->

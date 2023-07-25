@@ -18,7 +18,7 @@
       </div>
       <div class="flex flex-col">
         <p class="mt-3 text-sm font-bold">{{ user?.displayName }}</p>
-        <p class="mt-[-20px] text-xs font-light">{{ user?.email }}</p>
+        <p class="mt-[-20px] text-[0.67rem] font-light">{{ user?.email }}</p>
       </div>
     </div>
     <div class="grid-cols-3"></div>

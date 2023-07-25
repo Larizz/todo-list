@@ -11,7 +11,6 @@ const auth = getAuth(app)
 export const AuthGoogleProvider = defineStore('AuthGoogleProvider', () => {
   const user = ref<User | null>(null)
   const token = ref<string>()
-  // se o user for autenticado recebe User, se não, recebe null
 
   // loadStorageData: carrega os dados do armazenamento de sessão do navegador (sessionStorage) e atualiza o estado user com os dados armazenados, se existirem.
   function saveStorageData(user: any, token: string) {

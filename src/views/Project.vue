@@ -34,19 +34,11 @@
         </div>
         <div
           v-motion
-          :initial="{
-            y: 0,
-            opacity: 0
-          }"
-          :enter="{
-            y: 10,
-            opacity: 1,
-            transition: {
-              duration: 300,
-              type: 'keyframes',
-              ease: 'easeIn'
-            }
-          }"
+          :initial="{ opacity: 0, y: 100 }"
+          :enter="{ opacity: 1, y: 0, scale: 1 }"
+          :variants="{ custom: { scale: 2 } }"
+          :hovered="{ scale: 1.2 }"
+          :delay="200"
           class="md:w-[40rem] sm:w-[640px] w-[256px] sm:h-[30rem] h-[15rem]"
         >
           <img
@@ -96,11 +88,19 @@
               exercitationem accusamus fugiat officia qui cum deleniti.
             </p>
           </div>
-          <div class="w-full sm:h-[30rem] h-[20rem] rounded-2xl bg-white">
+          <div
+            class="w-full sm:h-full rounded-2xl bg-white"
+            v-motion
+            :initial="{ opacity: 0, y: 100 }"
+            :enter="{ opacity: 1, y: 0, scale: 1 }"
+            :variants="{ custom: { scale: 2 } }"
+            :hovered="{ scale: 1.2 }"
+            :delay="200"
+          >
             <img
               src="../assets/TodoNotes.jpg"
               alt=""
-              class="rounded-2xl w-full sm:h-[500px] object-cover"
+              class="rounded-2xl w-full sm:h-[500px] xy:h-[700px] object-cover"
             />
           </div>
         </div>
@@ -108,7 +108,15 @@
 
       <div class="flex justify-center mx-20 sm:my-72 my-40">
         <div class="grid sm:grid-cols-2 grid-cols-1 gap-20">
-          <div class="w-full sm:h-[30rem] h-[20rem] rounded-2xl bg-white">
+          <div
+            class="w-full sm:h-[30rem] h-[20rem] rounded-2xl bg-white"
+            v-motion
+            :initial="{ opacity: 0, y: 100 }"
+            :enter="{ opacity: 1, y: 0, scale: 1 }"
+            :variants="{ custom: { scale: 2 } }"
+            :hovered="{ scale: 1.2 }"
+            :delay="200"
+          >
             <img
               src="../assets/Organization.jpg"
               alt=""

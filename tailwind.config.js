@@ -44,6 +44,14 @@ module.exports = {
           '"Courier New"',
           'monospace'
         ]
+      },
+      screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1100px',
+        xl: '1280px',
+        '2xl': '1536px',
+        xy: '1920px'
       }
     }
   },

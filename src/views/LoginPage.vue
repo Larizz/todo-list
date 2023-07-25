@@ -52,9 +52,8 @@
 <script setup lang="ts">
 import { computed, defineComponent, onMounted, watch } from 'vue'
 import { AuthGoogleProvider } from '@/store/authGoogle'
-import { ref } from 'vue'
 
-const { user, signInGoogle, signOut, loadStorageData } = AuthGoogleProvider()
+const { signInGoogle, loadStorageData } = AuthGoogleProvider()
 
 onMounted(() => {
   loadStorageData()
