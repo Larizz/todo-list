@@ -16,8 +16,10 @@
     "@types/js-cookie": "^3.0.3",
     "@vueuse/motion": "^2.0.0",
     "axios": "^1.4.0",
-    "firebase": "^10.0.0",
+    "firebase": "^10.1.0",
+    "firebase-admin": "^11.10.1",
     "js-cookie": "^3.0.5",
+    "jwt-decode": "^3.1.2",
     "pinia": "^2.1.4",
     "quasar": "^2.12.2",
     "vue": "^3.3.4",
@@ -44,7 +46,6 @@
     "tailwindcss": "^3.3.2",
     "typescript": "~5.0.4",
     "vite": "^4.3.9",
-    "vue-cli-plugin-quasar": "~5.0.2",
     "vue-tsc": "^1.6.5"
   }
 }

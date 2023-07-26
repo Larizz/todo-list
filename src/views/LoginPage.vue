@@ -50,14 +50,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineComponent, onMounted, watch } from 'vue'
+import { onMounted } from 'vue'
 import { AuthGoogleProvider } from '@/store/authGoogle'
 
-const { signInGoogle, loadStorageData } = AuthGoogleProvider()
-
-onMounted(() => {
-  loadStorageData()
-})
+const { signInGoogle } = AuthGoogleProvider()
 </script>
 
 <style scoped>

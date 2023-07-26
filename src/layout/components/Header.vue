@@ -21,25 +21,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted, createApp } from 'vue'
-import { AuthGoogleProvider } from '../../store/authGoogle'
-
-const { user, loadStorageData } = AuthGoogleProvider()
-const savedUser = ref(null)
-
-onMounted(() => {
-  const savedUser = sessionStorage.getItem('user')
-  loadStorageData()
-
-  if (savedUser) {
-    console.log('user do local storage')
-    console.log(JSON.parse(savedUser))
-  }
-})
-
-console.log(user?.displayName)
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .header {

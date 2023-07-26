@@ -58,21 +58,6 @@ const getAllTasks = async () => {
   const task = (tasks.value = data.todos)
   console.log(tasks.value)
 }
-
-const titleCards = [
-  {
-    title: 'todo',
-    colorTag: 'bg-brand-info'
-  },
-  {
-    title: 'InProgress',
-    colorTag: 'bg-brand-purple'
-  },
-  {
-    title: 'Completed',
-    colorTag: 'bg-brand-warning'
-  }
-]
 </script>
 
 <style scoped>
