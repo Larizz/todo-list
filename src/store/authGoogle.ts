@@ -51,11 +51,14 @@ export const AuthGoogleProvider = defineStore('AuthGoogleProvider', () => {
   }
 
   async function signOut() {
-    const auth = getAuth(app)
+    const token = Cookies.get('token')
     try {
-      await auth.signOut()
+      Cookies.remove('token')
+      if (!token) {
+        router.push({ path: '/login' })
+      }
     } catch (error) {
-      console.error(error)
+      throw new Error('error')
     }
   }
 

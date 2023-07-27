@@ -1,7 +1,7 @@
 module.exports = {
   brand: {
     main: '#430de3',
-    gray: '#F9F9F9',
+    gray: '#f1f5f9',
     info: '#8296FB',
     graydark: '#C0BCB0',
     warning: '#d5ff40',

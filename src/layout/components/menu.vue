@@ -39,7 +39,9 @@
       </div>
     </div>
     <div class="absolute left-0 bottom-0 p-3">
-      <span class="text-slate-600 hover:text-slate-900">Sign Out </span>
+      <button @click="signOut()">
+        <span class="text-slate-600 hover:text-slate-900">Sign Out </span>
+      </button>
     </div>
   </div>
 </template>
@@ -47,7 +49,7 @@
 <script setup lang="ts">
 import { AuthGoogleProvider } from '../../store/authGoogle'
 
-const { getUser } = AuthGoogleProvider()
+const { getUser, signOut } = AuthGoogleProvider()
 
 const { name, email, picture } = getUser()
 </script>
