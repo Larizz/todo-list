@@ -14,15 +14,17 @@
         }"
         class="p-3"
       >
-        <draggable v-model="backlog" tag="ul" group="todos" :animation="300" class="min-h-[500px]">
+        <draggable v-model="backlog" tag="ul" group="todos" :animation="300" class="min-h-[100px]">
           <template #item="{ element: todo }">
-            <li class="my-3 p-3 rounded-lg bg-white text-slate-600 shadow-md">{{ todo }}</li>
+            <li class="my-3 p-3 rounded-lg bg-white text-slate-600 shadow-md min-h-[70px]">
+              {{ todo }}
+            </li>
           </template>
         </draggable>
       </q-scroll-area>
-      <div></div>
+      <InputNewTask />
     </div>
-    <div class="w-full bg-slate-100 rounded-lg p-4">
+    <div class="w-full bg-slate-100 rounded-lg p-4 min-h-[100px]">
       <div class="flex items-center gap-1">
         <p class="font-light text-slate-600 text-base">Todo</p>
         <div class="w-2 h-2 rounded-full mt-[-15px] bg-brand-danger"></div>
@@ -38,10 +40,13 @@
       >
         <draggable v-model="todos" tag="ul" group="todos" :animation="300" class="min-h-[500px]">
           <template #item="{ element: todo }">
-            <li class="my-3 p-3 rounded-lg bg-white text-slate-600 shadow-md">{{ todo }}</li>
+            <li class="my-3 p-3 rounded-lg bg-white text-slate-600 shadow-md min-h-[70px]">
+              {{ todo }}
+            </li>
           </template>
         </draggable>
       </q-scroll-area>
+      <InputNewTask />
     </div>
 
     <div class="w-full bg-slate-100 rounded-lg p-4">
@@ -66,19 +71,22 @@
           class="min-h-[500px]"
         >
           <template #item="{ element: todo }">
-            <li class="my-3 p-3 rounded-lg bg-white text-slate-600 shadow-md">{{ todo }}</li>
+            <li class="my-3 p-3 rounded-lg bg-white text-slate-600 shadow-md min-h-[70px]">
+              {{ todo }}
+            </li>
           </template>
         </draggable>
       </q-scroll-area>
+      <InputNewTask />
     </div>
 
-    <div class="w-full bg-slate-100 rounded-lg p-4">
+    <div class="w-full bg-slate-100 rounded-lg p-4 min-h-[100px]">
       <div class="flex items-center gap-1">
         <p class="font-light text-slate-600 text-base">Completed</p>
         <div class="w-2 h-2 rounded-full mt-[-15px] bg-brand-warning"></div>
       </div>
       <q-scroll-area
-        style="height: 475px; max-width: 500px"
+        style="height: 475px"
         :thumb-style="{
           right: '0px',
           borderRadius: '5px',
@@ -94,10 +102,14 @@
           class="min-h-[500px]"
         >
           <template #item="{ element: todo }">
-            <li class="my-3 p-3 rounded-lg bg-white text-slate-600 shadow-md">{{ todo }}</li>
+            <li class="my-3 p-3 rounded-lg bg-white text-slate-600 shadow-md min-h-[70px]">
+              {{ todo }}
+            </li>
           </template>
         </draggable>
       </q-scroll-area>
+
+      <InputNewTask />
     </div>
   </div>
 </template>
@@ -112,6 +124,7 @@
 import { onMounted, ref, watch } from 'vue'
 import services from '../../services'
 import draggable from 'vuedraggable'
+import InputNewTask from './InputNewTask.vue'
 
 const backlog = ref([])
 
@@ -120,8 +133,6 @@ const todos = ref([])
 const inProgress = ref([])
 
 const completed = ref([])
-
-const newTask = ref('')
 
 onMounted(() => {
   getAllTasks()

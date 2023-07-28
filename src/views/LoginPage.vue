@@ -50,7 +50,6 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import { AuthGoogleProvider } from '@/store/authGoogle'
 
 const { signInGoogle } = AuthGoogleProvider()
