@@ -25,21 +25,8 @@
           <fieldTasks />
         </div>
       </div>
-      <!-- v-for="(item, index) in titleCards"
-          :key="index"
-          :title-card="item.title"
-          :color-tag="item.colorTag" -->
     </div>
-    <!-- <div class="q-pa-md">
-      <div class="q-gutter-md "> -->
-    <!-- <ul>
-          <li v-for="(item, index) in tasks" :key="index" class="text-slate-600 font-light">
-            {{ (item as TodoItem).todo }}
-          </li>
-        </ul> -->
   </div>
-  <!-- </div>
-  </div> -->
 </template>
 
 <script setup lang="ts">

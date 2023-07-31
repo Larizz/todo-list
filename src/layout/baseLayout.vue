@@ -5,17 +5,11 @@
         <Menu />
       </div>
       <div class="flex flex-1 flex-col">
-        <div
-          class="ml-72 transition-all duration-500 opacity-1"
-          :class="{ 'ml-5 transition-all duration-500 ': state.miniState }"
-        >
+        <div class="ml-72" :class="{ 'ml-5': state.miniState }">
           <Header />
         </div>
 
-        <div
-          class="flex flex-1 mt-1 h-screen ml-72 transition-all duration-500"
-          :class="{ 'ml-5': state.miniState }"
-        >
+        <div class="flex flex-1 mt-1 h-screen ml-72" :class="{ 'ml-5': state.miniState }">
           <RouterView />
         </div>
       </div>
